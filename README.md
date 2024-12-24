@@ -1,6 +1,13 @@
 # Question and Solution Learning Management App
 
-[Strapi.io ](https://strapi.io/) was used to create this app. 
+[Strapi.io ](https://strapi.io/) was used to create this app. Admin or Learning Manager can create questions and manage file uploads here in this [app](https://prized-beauty-0d76e9d2d4.strapiapp.com/admin/auth/login) (Please send me an email to create an account) 
+
+## Project Setup for local deployment
+Prerequisite:
+- NPM (9.6.4)
+- Node 20.0.0
+
+Run `yarn develop` to run the app locally.
 
 ## Data Model
 Below is the data model for this app:
@@ -12,9 +19,9 @@ Below is the data model for this app:
 | BASE_URL      | https://prized-beauty-0d76e9d2d4.strapiapp.com       |
 | API Token   | 1d1aa4d1276b5eb7e2ab9e4355449fa52e5b831bf46a3c7113410b0132668d3e4e80423bf8983714401ab55a4c84884c4c9d6db268b4761f9017df6625ca4fcddbadc695d70027cb126f87b209f7a2d4b9abfac031c23d31e491d5bb085998cc85c2ac9e076c945a51fe4bceb20519747f3454eddf403cb47c2ce988528af75e        |
 
-Postman collection can be found [here](/public/docs/LMS.postman_collection.json): 
-Sample API Response: 
+Postman collection can be found [here](/public/docs/LMS.postman_collection.json) to test the API: 
 
+Sample API Response: 
 ```json
 [
     {

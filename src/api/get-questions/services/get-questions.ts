@@ -39,6 +39,7 @@ export default {
                         CorrectAnswer: item.correct_answer || "",
                         Options: item.options.map(option => option.option_text) || [],
                         Steps: reduceSteps(item.steps),
+                        Solution: item.solution || "",
                         ImageUrl: item.image_url.map(img => img.url) || [],
                     });
                     return acc;
