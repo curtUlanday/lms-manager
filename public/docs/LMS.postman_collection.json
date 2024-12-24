@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "7de7b22e-cfce-4d69-868d-cf5f3263dfaa",
+		"name": "LMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10075757"
+	},
+	"item": [
+		{
+			"name": "GET All Questions - No Transform",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/questions?populate=*",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"questions"
+					],
+					"query": [
+						{
+							"key": "populate",
+							"value": "*"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Question - Transformed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/get-questions",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"get-questions"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{api_key}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_key",
+			"value": "96c6c1e6d3cc20f48ce85ae0221ddc40aab6b5266465c148fb94ea86705488d05d4a40b92b26e0a90bf7461d380f04e79693d02f3d252f007a59554b3acf9d21f06b0c1a93826ba4c543fee2c5f299db9c0cdd898a5d26c023be1d9f1602162ab086557bafa6ef0e94f7012b9772f2e772e52869a8cde44b529c75c978fd6dd4",
+			"type": "default"
+		},
+		{
+			"key": "api_key",
+			"value": "96c6c1e6d3cc20f48ce85ae0221ddc40aab6b5266465c148fb94ea86705488d05d4a40b92b26e0a90bf7461d380f04e79693d02f3d252f007a59554b3acf9d21f06b0c1a93826ba4c543fee2c5f299db9c0cdd898a5d26c023be1d9f1602162ab086557bafa6ef0e94f7012b9772f2e772e52869a8cde44b529c75c978fd6dd4",
+			"type": "default"
+		},
+		{
+			"key": "BASE_URL",
+			"value": "localhost:1337",
+			"type": "string"
+		}
+	]
+}

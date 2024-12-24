@@ -1,61 +1,50 @@
-# 🚀 Getting started with Strapi
+# Question and Solution Learning Management App
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+[Strapi.io ](https://strapi.io/) was used to create this app. 
 
-### `develop`
+## Data Model
+Below is the data model for this app:
+![Data Model](/public/docs/datamodel.png "Data Model")
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+## REST API Config
+| Name        | Value       |
+| ----------- | ----------- |
+| BASE_URL      | https://prized-beauty-0d76e9d2d4.strapiapp.com       |
+| API Token   | 1d1aa4d1276b5eb7e2ab9e4355449fa52e5b831bf46a3c7113410b0132668d3e4e80423bf8983714401ab55a4c84884c4c9d6db268b4761f9017df6625ca4fcddbadc695d70027cb126f87b209f7a2d4b9abfac031c23d31e491d5bb085998cc85c2ac9e076c945a51fe4bceb20519747f3454eddf403cb47c2ce988528af75e        |
 
-```
-npm run develop
-# or
-yarn develop
-```
+Postman collection can be found [here](/public/docs/LMS.postman_collection.json): 
+Sample API Response: 
 
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-```
-yarn strapi deploy
-```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+```json
+[
+    {
+        "id": "crks1jgm780og325iin7z89s",
+        "Question": "<p><span style=\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\">In a town, there is a 4-acre park and a 60-acre residential area. The total number of street lamps in the town is 1,200. The equation 4x + 60y = 1,200 represents this situation. Which of the following is the best interpretation of x in this context?&nbsp;</span></span></p>",
+        "CorrectAnswer": "15400",
+        "Options": [
+            "13000",
+            "13400",
+            "15400",
+            "37400"
+        ],
+        "Steps": [
+            {
+                "Title": "Step 1: What result are we looking for?",
+                "Result": "<p style=\"line-height:1.38;margin-bottom:12pt;margin-top:12pt;\" dir=\"ltr\"><span style=\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\">We are looking for what “x” means in the equation...&nbsp;</span></span></p><figure class=\"image\"><img style=\"aspect-ratio:418/100;\" alt=\"Screenshot 2024-12-24 at 8.49.38 AM.png\" src=\"https://prized-beauty-0d76e9d2d4.media.strapiapp.com/Screenshot_2024_12_24_at_8_49_38_AM_48ca34316d.png\" width=\"418\" height=\"100\"></figure><p style=\"line-height:1.38;margin-bottom:12pt;margin-top:12pt;\" dir=\"ltr\"><span style=\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\">This equation tells us the total number of street lamps in the town is equal to 1200.</span></span></p>",
+                "ImageUrl": [
+                    "https://prized-beauty-0d76e9d2d4.media.strapiapp.com/Screenshot_2024_12_24_at_8_49_38_AM_48ca34316d.png"
+                ]
+            },
+            {
+                "Title": "Step 2: How do we get that result?",
+                "Result": "<p style=\"line-height:1.38;margin-bottom:12pt;margin-top:12pt;\" dir=\"ltr\"><span style=\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\">We need to figure out the relationship between 4 and x, and understand the equation overall.</span></span></p><figure class=\"image\"><img alt=\"Screenshot 2024-12-24 at 8.49.49 AM.png\" src=\"https://prized-beauty-0d76e9d2d4.media.strapiapp.com/Screenshot_2024_12_24_at_8_49_49_AM_0af1a9c132.png\" srcset=\"https://prized-beauty-0d76e9d2d4.media.strapiapp.com/thumbnail_Screenshot_2024_12_24_at_8_49_49_AM_0af1a9c132.png 245w, https://prized-beauty-0d76e9d2d4.media.strapiapp.com/small_Screenshot_2024_12_24_at_8_49_49_AM_0af1a9c132.png 500w\" sizes=\"100vw\" width=\"500\"></figure><p style=\"line-height:1.38;margin-bottom:12pt;margin-top:12pt;\" dir=\"ltr\"><span style=\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\">We are given the equation and told that the total number of street lamps in the town is 1,200.&nbsp;</span></span></p><p style=\"line-height:1.38;margin-bottom:12pt;margin-top:12pt;\" dir=\"ltr\"><span style=\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\">The town is made up of a&nbsp;</span></span><span style=\"background-color:transparent;color:rgb(255,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\"><strong>4-acre park</strong></span></span><span style=\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\">, and a&nbsp;</span></span><span style=\"background-color:transparent;color:rgb(0,0,255);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\"><strong>60-acre residential area</strong></span></span><span style=\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\">.&nbsp;</span></span></p><p><span style=\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\">To get the&nbsp;</span><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\"><strong>total number of street lamps</strong></span><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\">, we would need to add the&nbsp;</span></span><span style=\"background-color:transparent;color:rgb(255,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\"><strong>total</strong></span></span><span style=\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\"> number of street lamps in the park and the&nbsp;</span></span><span style=\"background-color:transparent;color:rgb(0,0,255);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\"><strong>total</strong></span></span><span style=\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\"><span style=\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-emoji:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\"> number of street lamps in the residential area.</span></span></p>",
+                "ImageUrl": [
+                    "https://prized-beauty-0d76e9d2d4.media.strapiapp.com/Screenshot_2024_12_24_at_8_49_49_AM_0af1a9c132.png"
+                ]
+            }
+        ],
+        "ImageUrl": [
+            "https://prized-beauty-0d76e9d2d4.media.strapiapp.com/Screenshot_2024_12_24_at_8_49_55_AM_2d5832096f.png"
+        ]
+    }
+]
