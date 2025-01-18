@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rounds",
+  "info": {
+    "singularName": "round",
+    "pluralName": "rounds",
+    "displayName": "Round",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question_contexts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question.question"
+    },
+    "round_id": {
+      "type": "customField",
+      "options": {
+        "disable-regenerate": true
+      },
+      "customField": "plugin::strapi-advanced-uuid.uuid"
+    },
+    "match_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::match.match",
+      "private": true,
+      "inversedBy": "rounds"
+    }
+  }
+}

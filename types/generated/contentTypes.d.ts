@@ -369,6 +369,50 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMatchMatch extends Struct.CollectionTypeSchema {
+  collectionName: 'matches';
+  info: {
+    description: '';
+    displayName: 'Match';
+    pluralName: 'matches';
+    singularName: 'match';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    host_id: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::match.match'> &
+      Schema.Attribute.Private;
+    match_id: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
+    match_status: Schema.Attribute.Enumeration<
+      ['Ongoing', 'Expired', 'Finished']
+    >;
+    player_answer_data: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::player.player'
+    >;
+    players: Schema.Attribute.Relation<
+      'oneToMany',
+      'plugin::users-permissions.user'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    rounds: Schema.Attribute.Relation<'oneToMany', 'api::round.round'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOptionOption extends Struct.CollectionTypeSchema {
   collectionName: 'options';
   info: {
@@ -392,6 +436,46 @@ export interface ApiOptionOption extends Struct.CollectionTypeSchema {
     option_text: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     question: Schema.Attribute.Relation<'manyToOne', 'api::question.question'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPlayerPlayer extends Struct.CollectionTypeSchema {
+  collectionName: 'players';
+  info: {
+    description: '';
+    displayName: 'Player';
+    pluralName: 'players';
+    singularName: 'player';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    answer: Schema.Attribute.String;
+    answer_index: Schema.Attribute.Relation<'oneToOne', 'api::option.option'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::player.player'
+    > &
+      Schema.Attribute.Private;
+    player_id: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    question_context: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::question.question'
+    >;
+    round: Schema.Attribute.Relation<'oneToOne', 'api::round.round'>;
+    time_taken: Schema.Attribute.Float;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -441,6 +525,49 @@ export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
         }
       >;
     steps: Schema.Attribute.Relation<'oneToMany', 'api::step.step'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRoundRound extends Struct.CollectionTypeSchema {
+  collectionName: 'rounds';
+  info: {
+    description: '';
+    displayName: 'Round';
+    pluralName: 'rounds';
+    singularName: 'round';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::round.round'> &
+      Schema.Attribute.Private;
+    match_id: Schema.Attribute.Relation<'manyToOne', 'api::match.match'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    question_contexts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::question.question'
+    >;
+    round_id: Schema.Attribute.UID<
+      undefined,
+      {
+        'disable-regenerate': true;
+      }
+    > &
+      Schema.Attribute.CustomField<
+        'plugin::strapi-advanced-uuid.uuid',
+        {
+          'disable-regenerate': true;
+        }
+      >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -994,8 +1121,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::match.match': ApiMatchMatch;
       'api::option.option': ApiOptionOption;
+      'api::player.player': ApiPlayerPlayer;
       'api::question.question': ApiQuestionQuestion;
+      'api::round.round': ApiRoundRound;
       'api::step.step': ApiStepStep;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
