@@ -46,17 +46,1034 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/api/get-questions",
+					"raw": "{{BASE_URL}}/api/get-questions/",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
 						"api",
-						"get-questions"
+						"get-questions",
+						""
 					]
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Users - Get All",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/users",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "Get all users. We need to trigger this endpoint for future use because we're going to use the user.documentId."
+			},
+			"response": []
+		},
+		{
+			"name": "Match - Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"host_id\": \"txpp8t2tmoxiaihyh7pv3urj\",\n        \"match_status\": \"Ongoing\",\n        \"players\": [\n            \"ncyodq4vdkrlmrg4ka4mwp1b\",\n            \"txpp8t2tmoxiaihyh7pv3urj\"\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/matches",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"matches"
+					]
+				},
+				"description": "Used to create match record. Users can invite a maximum of 2 players per match"
+			},
+			"response": [
+				{
+					"name": "Create Initial Match Record",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"host_id\": \"txpp8t2tmoxiaihyh7pv3urj\",\n        \"match_status\": \"Ongoing\",\n        \"players\": [\n            \"ncyodq4vdkrlmrg4ka4mwp1b\",\n            \"txpp8t2tmoxiaihyh7pv3urj\"\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1337/api/matches",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"matches"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "261"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 17 Jan 2025 01:54:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"documentId\": \"tf7wv7w76rqw3lu48vubx5de\",\n        \"match_id\": \"2d79ee42-8cda-4e28-a3c9-3acc25377bda\",\n        \"match_status\": \"Ongoing\",\n        \"createdAt\": \"2025-01-17T01:54:56.939Z\",\n        \"updatedAt\": \"2025-01-17T01:54:56.939Z\",\n        \"publishedAt\": \"2025-01-17T01:54:56.947Z\"\n    },\n    \"meta\": {}\n}"
+				},
+				{
+					"name": "Create Match Record - 2 Players Only",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"host_id\": \"txpp8t2tmoxiaihyh7pv3urj\",\n        \"match_status\": \"Ongoing\",\n        \"players\": [\n            \"ncyodq4vdkrlmrg4ka4mwp1b\",\n            \"txpp8t2tmoxiaihyh7pv3urj\",\n            \"txpp8t2tmoxiaihyh7pv3urj\"\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/matches",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"matches"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "126"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 17 Jan 2025 02:31:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"error\": {\n        \"status\": 400,\n        \"name\": \"ApplicationError\",\n        \"message\": \"You can only have 2 players in a match\",\n        \"details\": {}\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Match - Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"host_id\": \"txpp8t2tmoxiaihyh7pv3urj\",\n        \"match_status\": \"Ongoing\",\n        \"players\": [\n            \"txpp8t2tmoxiaihyh7pv3urj\",\n            \"ncyodq4vdkrlmrg4ka4mwp1b\"\n            \n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/matches/tf7wv7w76rqw3lu48vubx5de",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"matches",
+						"tf7wv7w76rqw3lu48vubx5de"
+					]
+				},
+				"description": "Used to update a match record. Only the player id who's listed in a match can update the match record. Otherwise, the system will throw an error"
+			},
+			"response": [
+				{
+					"name": "Update Match Record",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"host_id\": \"txpp8t2tmoxiaihyh7pv3urj\",\n        \"match_status\": \"Ongoing\",\n        \"players\": [\n            \"txpp8t2tmoxiaihyh7pv3urj\",\n            \"ncyodq4vdkrlmrg4ka4mwp1b\"\n            \n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1337/api/matches/tf7wv7w76rqw3lu48vubx5de",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"matches",
+								"tf7wv7w76rqw3lu48vubx5de"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "262"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 17 Jan 2025 03:04:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 21,\n        \"documentId\": \"tf7wv7w76rqw3lu48vubx5de\",\n        \"match_id\": \"4a74f11c-e1a0-4394-984a-01d7fc7579dd\",\n        \"match_status\": \"Ongoing\",\n        \"createdAt\": \"2025-01-17T01:54:56.939Z\",\n        \"updatedAt\": \"2025-01-17T03:04:35.544Z\",\n        \"publishedAt\": \"2025-01-17T03:04:35.560Z\"\n    },\n    \"meta\": {}\n}"
+				},
+				{
+					"name": "Update Match - Not Allowed",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"host_id\": \"txpp8t2tmoxiaihyh7pv3urj\",\n        \"match_status\": \"Ongoing\",\n        \"players\": [\n            \"txpp8t2tmoxiaihyh7pv3urj\",\n            \"iwh170ga92toh0ald00zoac6\"\n            \n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/matches/tf7wv7w76rqw3lu48vubx5de",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"matches",
+								"tf7wv7w76rqw3lu48vubx5de"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "130"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 17 Jan 2025 03:05:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"error\": {\n        \"status\": 400,\n        \"name\": \"ApplicationError\",\n        \"message\": \"You can only update the players in a match\",\n        \"details\": {}\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Custom - Get All My Matches",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/get-my-matches/txpp8t2tmoxiaihyh7pv3urj",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"get-my-matches",
+						"txpp8t2tmoxiaihyh7pv3urj"
+					]
+				},
+				"description": "A Custom Endpoint to get all match per user. We need to supply the User.documentId as input parameter"
+			},
+			"response": [
+				{
+					"name": "Custom - Get All My Matches",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1337/api/get-my-matches/txpp8t2tmoxiaihyh7pv3urj",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"get-my-matches",
+								"txpp8t2tmoxiaihyh7pv3urj"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "4323"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2025 12:24:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"documentId\": \"tf7wv7w76rqw3lu48vubx5de\",\n        \"match_status\": \"Ongoing\",\n        \"host_id\": {\n            \"id\": 1,\n            \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n            \"username\": \"player1test@icloud.com\",\n            \"email\": \"player1test@icloud.com\"\n        },\n        \"players\": [\n            {\n                \"id\": 1,\n                \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n                \"username\": \"player1test@icloud.com\",\n                \"email\": \"player1test@icloud.com\"\n            },\n            {\n                \"id\": 2,\n                \"documentId\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n                \"username\": \"player2test@icloud.com\",\n                \"email\": \"player2test@icloud.com\"\n            }\n        ],\n        \"rounds\": [\n            {\n                \"createdAt\": \"2025-01-19T03:12:44.561Z\",\n                \"id\": 3,\n                \"documentId\": \"sbmfsqxp46vvplp6fg2alwah\",\n                \"question_contexts\": [\n                    {\n                        \"id\": 1,\n                        \"documentId\": \"o2qrnlldknlz1mql6fhogx1q\",\n                        \"question\": \"<p style=\\\"line-height:1.38;margin-bottom:12pt;margin-top:12pt;\\\" dir=\\\"ltr\\\"><span style=\\\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\\\"><span style=\\\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\\\">In a town, there is a 4-acre park and a 60-acre residential area. The total number of street lamps in the town is 1,200. The equation 4x + 60y = 1,200 represents this situation. Which of the following is the best interpretation of x in this context?&nbsp;</span></span></p>\",\n                        \"correct_answer\": \"15400\"\n                    }\n                ],\n                \"player_answer_data\": []\n            },\n            {\n                \"createdAt\": \"2025-01-19T03:09:51.645Z\",\n                \"id\": 1,\n                \"documentId\": \"rgi4zhwvsyylkd7846ph19f5\",\n                \"question_contexts\": [\n                    {\n                        \"id\": 1,\n                        \"documentId\": \"o2qrnlldknlz1mql6fhogx1q\",\n                        \"question\": \"<p style=\\\"line-height:1.38;margin-bottom:12pt;margin-top:12pt;\\\" dir=\\\"ltr\\\"><span style=\\\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\\\"><span style=\\\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\\\">In a town, there is a 4-acre park and a 60-acre residential area. The total number of street lamps in the town is 1,200. The equation 4x + 60y = 1,200 represents this situation. Which of the following is the best interpretation of x in this context?&nbsp;</span></span></p>\",\n                        \"correct_answer\": \"15400\"\n                    }\n                ],\n                \"player_answer_data\": [\n                    {\n                        \"id\": 1,\n                        \"documentId\": \"fugyyavx94k8os3d5ak30fg9\",\n                        \"answer_text\": \"1500\",\n                        \"time_taken\": 5,\n                        \"answered_by\": {\n                            \"id\": 1,\n                            \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n                            \"username\": \"player1test@icloud.com\"\n                        }\n                    },\n                    {\n                        \"id\": 3,\n                        \"documentId\": \"zygptv6wssy4bx5tozxxu1a4\",\n                        \"answer_text\": \"1600\",\n                        \"time_taken\": 3,\n                        \"answered_by\": {\n                            \"id\": 2,\n                            \"documentId\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n                            \"username\": \"player2test@icloud.com\"\n                        }\n                    }\n                ]\n            }\n        ]\n    },\n    {\n        \"id\": 22,\n        \"documentId\": \"ejaf9114t0yfj0rg1051g7cu\",\n        \"match_status\": \"Ongoing\",\n        \"host_id\": {\n            \"id\": 1,\n            \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n            \"username\": \"player1test@icloud.com\",\n            \"email\": \"player1test@icloud.com\"\n        },\n        \"players\": [\n            {\n                \"id\": 2,\n                \"documentId\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n                \"username\": \"player2test@icloud.com\",\n                \"email\": \"player2test@icloud.com\"\n            },\n            {\n                \"id\": 1,\n                \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n                \"username\": \"player1test@icloud.com\",\n                \"email\": \"player1test@icloud.com\"\n            }\n        ],\n        \"rounds\": []\n    },\n    {\n        \"id\": 24,\n        \"documentId\": \"o8ueyb325qstneja67z18a4k\",\n        \"match_status\": \"Ongoing\",\n        \"host_id\": {\n            \"id\": 1,\n            \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n            \"username\": \"player1test@icloud.com\",\n            \"email\": \"player1test@icloud.com\"\n        },\n        \"players\": [\n            {\n                \"id\": 2,\n                \"documentId\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n                \"username\": \"player2test@icloud.com\",\n                \"email\": \"player2test@icloud.com\"\n            },\n            {\n                \"id\": 1,\n                \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n                \"username\": \"player1test@icloud.com\",\n                \"email\": \"player1test@icloud.com\"\n            }\n        ],\n        \"rounds\": [\n            {\n                \"createdAt\": \"2025-01-19T10:08:44.409Z\",\n                \"id\": 7,\n                \"documentId\": \"shlsepy72qfg54wocuo4gm3r\",\n                \"question_contexts\": [\n                    {\n                        \"id\": 7,\n                        \"documentId\": \"g4m4u2miqz4ndnzdppbpp4fm\",\n                        \"question\": \"<p>This is a test question</p>\",\n                        \"correct_answer\": \"1500\"\n                    }\n                ],\n                \"player_answer_data\": [\n                    {\n                        \"id\": 9,\n                        \"documentId\": \"ebbx0xgj09n9hp77j9ukngax\",\n                        \"answer_text\": \"2000\",\n                        \"time_taken\": 10000,\n                        \"answered_by\": {\n                            \"id\": 1,\n                            \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n                            \"username\": \"player1test@icloud.com\"\n                        }\n                    },\n                    {\n                        \"id\": 7,\n                        \"documentId\": \"lpxiubzv1pxcp1p7vqvgr4iy\",\n                        \"answer_text\": \"1500\",\n                        \"time_taken\": 5000,\n                        \"answered_by\": {\n                            \"id\": 2,\n                            \"documentId\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n                            \"username\": \"player2test@icloud.com\"\n                        }\n                    }\n                ]\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Round - Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"match\": \"o8ueyb325qstneja67z18a4k\",\n        \"question_context\": \"g4m4u2miqz4ndnzdppbpp4fm\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/rounds",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"rounds"
+					]
+				},
+				"description": "API Endpoint used to create a \\`round\\` record. Essentially, in a match we need to create a round record together patching the question record being asked to the players"
+			},
+			"response": [
+				{
+					"name": "Round - Create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"match\": \"o8ueyb325qstneja67z18a4k\",\n        \"question_context\": \"g4m4u2miqz4ndnzdppbpp4fm\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1337/api/rounds",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"rounds"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "236"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2025 10:08:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 8,\n        \"documentId\": \"shlsepy72qfg54wocuo4gm3r\",\n        \"round_id\": \"35248529-0651-4665-8fc8-ba87c76ce628\",\n        \"createdAt\": \"2025-01-19T10:08:44.409Z\",\n        \"updatedAt\": \"2025-01-19T10:08:44.409Z\",\n        \"publishedAt\": \"2025-01-19T10:08:44.418Z\"\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Player - Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"round_index\": \"shlsepy72qfg54wocuo4gm3r\",\n        \"answered_by\": \"txpp8t2tmoxiaihyh7pv3urj\",\n        \"question_content\": \"g4m4u2miqz4ndnzdppbpp4fm\",\n        \"answer_text\": \"2000\",\n        \"time_taken\": 10000\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/players",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"players"
+					]
+				},
+				"description": "API Endpoint used to create player answer data. If the player is ready to answer a question we need to create this record. Each player answer data is sorted based on host Id (host Id being the first record in an array)"
+			},
+			"response": [
+				{
+					"name": "Player - Create - P1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"round_index\": \"shlsepy72qfg54wocuo4gm3r\",\n        \"answered_by\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n        \"question_content\": \"g4m4u2miqz4ndnzdppbpp4fm\",\n        \"answer_text\": \"1500\",\n        \"time_taken\": 5000\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1337/api/players",
+							"host": [
+								"localhost"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"players"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "225"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2025 10:15:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 8,\n        \"documentId\": \"lpxiubzv1pxcp1p7vqvgr4iy\",\n        \"createdAt\": \"2025-01-19T10:15:12.843Z\",\n        \"updatedAt\": \"2025-01-19T10:15:12.843Z\",\n        \"publishedAt\": \"2025-01-19T10:15:12.848Z\",\n        \"answer_text\": \"1500\",\n        \"time_taken\": 5000\n    },\n    \"meta\": {}\n}"
+				},
+				{
+					"name": "Player - Create - P2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"round_index\": \"shlsepy72qfg54wocuo4gm3r\",\n        \"answered_by\": \"txpp8t2tmoxiaihyh7pv3urj\",\n        \"question_content\": \"g4m4u2miqz4ndnzdppbpp4fm\",\n        \"answer_text\": \"2000\",\n        \"time_taken\": 10000\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/players",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"players"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "227"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2025 10:36:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 10,\n        \"documentId\": \"ebbx0xgj09n9hp77j9ukngax\",\n        \"createdAt\": \"2025-01-19T10:36:29.872Z\",\n        \"updatedAt\": \"2025-01-19T10:36:29.872Z\",\n        \"publishedAt\": \"2025-01-19T10:36:29.886Z\",\n        \"answer_text\": \"2000\",\n        \"time_taken\": 10000\n    },\n    \"meta\": {}\n}"
+				}
+			]
 		}
 	],
 	"auth": {
@@ -94,12 +1111,7 @@
 	"variable": [
 		{
 			"key": "api_key",
-			"value": "96c6c1e6d3cc20f48ce85ae0221ddc40aab6b5266465c148fb94ea86705488d05d4a40b92b26e0a90bf7461d380f04e79693d02f3d252f007a59554b3acf9d21f06b0c1a93826ba4c543fee2c5f299db9c0cdd898a5d26c023be1d9f1602162ab086557bafa6ef0e94f7012b9772f2e772e52869a8cde44b529c75c978fd6dd4",
-			"type": "default"
-		},
-		{
-			"key": "api_key",
-			"value": "96c6c1e6d3cc20f48ce85ae0221ddc40aab6b5266465c148fb94ea86705488d05d4a40b92b26e0a90bf7461d380f04e79693d02f3d252f007a59554b3acf9d21f06b0c1a93826ba4c543fee2c5f299db9c0cdd898a5d26c023be1d9f1602162ab086557bafa6ef0e94f7012b9772f2e772e52869a8cde44b529c75c978fd6dd4",
+			"value": "53103a81c260d72b9dce8fd3a3ce6b30bb028862c4acb5af268d5f9cf0e959b3f0b27e5019b75eca3905cdea4e723cb54fdc2c063ab3533bbb72863e085450dd4ab4ea66b977edac165cb36fb51c80ef4f3c445ca9699a16c6b0b6749d2c4ad57c44479774ee2d2c0cd2af3268d1a777ab8d1f95d648435c14ba338479148e0d",
 			"type": "default"
 		},
 		{

@@ -17,13 +17,6 @@
       "relation": "oneToMany",
       "target": "api::question.question"
     },
-    "round_id": {
-      "type": "customField",
-      "options": {
-        "disable-regenerate": true
-      },
-      "customField": "plugin::strapi-advanced-uuid.uuid"
-    },
     "player_answer_data": {
       "type": "relation",
       "relation": "oneToMany",

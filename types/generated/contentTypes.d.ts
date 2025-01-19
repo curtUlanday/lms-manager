@@ -554,18 +554,6 @@ export interface ApiRoundRound extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::question.question'
     >;
-    round_id: Schema.Attribute.UID<
-      undefined,
-      {
-        'disable-regenerate': true;
-      }
-    > &
-      Schema.Attribute.CustomField<
-        'plugin::strapi-advanced-uuid.uuid',
-        {
-          'disable-regenerate': true;
-        }
-      >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
