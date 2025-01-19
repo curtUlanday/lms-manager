@@ -4,7 +4,7 @@
   "info": {
     "singularName": "player",
     "pluralName": "players",
-    "displayName": "Player",
+    "displayName": "Player Answer Data",
     "description": ""
   },
   "options": {
@@ -12,31 +12,27 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "answer": {
-      "type": "string"
-    },
-    "time_taken": {
-      "type": "float"
-    },
-    "round": {
+    "round_index": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::round.round"
+      "relation": "manyToOne",
+      "target": "api::round.round",
+      "inversedBy": "player_answer_data"
     },
-    "question_context": {
+    "question_content": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::question.question"
     },
-    "player_id": {
+    "answered_by": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "answer_index": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::option.option"
+    "answer_text": {
+      "type": "string"
+    },
+    "time_taken": {
+      "type": "float"
     }
   }
 }

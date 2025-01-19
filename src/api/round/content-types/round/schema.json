@@ -24,11 +24,16 @@
       },
       "customField": "plugin::strapi-advanced-uuid.uuid"
     },
-    "match_id": {
+    "player_answer_data": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::player.player",
+      "mappedBy": "round_index"
+    },
+    "match": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::match.match",
-      "private": true,
       "inversedBy": "rounds"
     }
   }

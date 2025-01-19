@@ -30,21 +30,16 @@
         "Finished"
       ]
     },
-    "rounds": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::round.round",
-      "mappedBy": "match_id"
-    },
-    "player_answer_data": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::player.player"
-    },
     "players": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user"
+    },
+    "rounds": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::round.round",
+      "mappedBy": "match"
     }
   }
 }

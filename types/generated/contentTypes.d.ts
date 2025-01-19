@@ -397,10 +397,6 @@ export interface ApiMatchMatch extends Struct.CollectionTypeSchema {
     match_status: Schema.Attribute.Enumeration<
       ['Ongoing', 'Expired', 'Finished']
     >;
-    player_answer_data: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::player.player'
-    >;
     players: Schema.Attribute.Relation<
       'oneToMany',
       'plugin::users-permissions.user'
@@ -446,7 +442,7 @@ export interface ApiPlayerPlayer extends Struct.CollectionTypeSchema {
   collectionName: 'players';
   info: {
     description: '';
-    displayName: 'Player';
+    displayName: 'Player Answer Data';
     pluralName: 'players';
     singularName: 'player';
   };
@@ -454,8 +450,11 @@ export interface ApiPlayerPlayer extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    answer: Schema.Attribute.String;
-    answer_index: Schema.Attribute.Relation<'oneToOne', 'api::option.option'>;
+    answer_text: Schema.Attribute.String;
+    answered_by: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -465,16 +464,12 @@ export interface ApiPlayerPlayer extends Struct.CollectionTypeSchema {
       'api::player.player'
     > &
       Schema.Attribute.Private;
-    player_id: Schema.Attribute.Relation<
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
     publishedAt: Schema.Attribute.DateTime;
-    question_context: Schema.Attribute.Relation<
-      'oneToOne',
+    question_content: Schema.Attribute.Relation<
+      'oneToMany',
       'api::question.question'
     >;
-    round: Schema.Attribute.Relation<'oneToOne', 'api::round.round'>;
+    round_index: Schema.Attribute.Relation<'manyToOne', 'api::round.round'>;
     time_taken: Schema.Attribute.Float;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -549,8 +544,11 @@ export interface ApiRoundRound extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::round.round'> &
       Schema.Attribute.Private;
-    match_id: Schema.Attribute.Relation<'manyToOne', 'api::match.match'> &
-      Schema.Attribute.Private;
+    match: Schema.Attribute.Relation<'manyToOne', 'api::match.match'>;
+    player_answer_data: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::player.player'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     question_contexts: Schema.Attribute.Relation<
       'oneToMany',
