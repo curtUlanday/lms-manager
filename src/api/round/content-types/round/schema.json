@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "question_contexts": {
+    "question_context": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::question.question"

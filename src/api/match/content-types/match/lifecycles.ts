@@ -3,14 +3,14 @@ const { errors } = require('@strapi/utils');
 const { ApplicationError } = errors;
 
 export default {
-    beforeCreate: async (event) => {
-        const updateValues = event.params.data;
+    // beforeCreate: async (event) => {
+    //     const updateValues = event.params.data;
+    //     console.log('updateValues', updateValues);
+    //     if(updateValues.players.connect.length > 2) {
+    //         throw new ApplicationError('You can only have 2 players in a match');
+    //     }
 
-        if(updateValues.players.set.length > 2) {
-            throw new ApplicationError('You can only have 2 players in a match');
-        }
-
-    },
+    // },
 
     beforeUpdate: async (event) => {
         const updateValues = event.params.data;

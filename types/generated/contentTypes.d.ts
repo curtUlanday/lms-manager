@@ -550,7 +550,7 @@ export interface ApiRoundRound extends Struct.CollectionTypeSchema {
       'api::player.player'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    question_contexts: Schema.Attribute.Relation<
+    question_context: Schema.Attribute.Relation<
       'oneToMany',
       'api::question.question'
     >;

@@ -105,7 +105,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"data\": {\n        \"host_id\": \"txpp8t2tmoxiaihyh7pv3urj\",\n        \"match_status\": \"Ongoing\",\n        \"players\": [\n            \"ncyodq4vdkrlmrg4ka4mwp1b\",\n            \"txpp8t2tmoxiaihyh7pv3urj\"\n        ]\n    }\n}",
+					"raw": "{\n    \"data\": {\n        \"host_id\": \"txpp8t2tmoxiaihyh7pv3urj\",\n        \"match_status\": \"Ongoing\",\n        \"players\": [\n            \"txpp8t2tmoxiaihyh7pv3urj\",\n            \"ncyodq4vdkrlmrg4ka4mwp1b\"\n        ]\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -140,11 +140,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:1337/api/matches",
+							"raw": "{{BASE_URL}}/api/matches",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "1337",
 							"path": [
 								"api",
 								"matches"
@@ -379,11 +378,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:1337/api/matches/tf7wv7w76rqw3lu48vubx5de",
+							"raw": "{{BASE_URL}}/api/matches/tf7wv7w76rqw3lu48vubx5de",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "1337",
 							"path": [
 								"api",
 								"matches",
@@ -583,14 +581,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/api/get-my-matches/txpp8t2tmoxiaihyh7pv3urj",
+					"raw": "{{BASE_URL}}/api/get-my-matches/txpp8t2tmoxiaihyh7pv3urj/Ongoing",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
 						"api",
 						"get-my-matches",
-						"txpp8t2tmoxiaihyh7pv3urj"
+						"txpp8t2tmoxiaihyh7pv3urj",
+						"Ongoing"
 					]
 				},
 				"description": "A Custom Endpoint to get all match per user. We need to supply the User.documentId as input parameter"
@@ -602,15 +601,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:1337/api/get-my-matches/txpp8t2tmoxiaihyh7pv3urj",
+							"raw": "{{BASE_URL}}/api/get-my-matches/txpp8t2tmoxiaihyh7pv3urj/Ongoing",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "1337",
 							"path": [
 								"api",
 								"get-my-matches",
-								"txpp8t2tmoxiaihyh7pv3urj"
+								"txpp8t2tmoxiaihyh7pv3urj",
+								"Ongoing"
 							]
 						}
 					},
@@ -672,11 +671,11 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "4323"
+							"value": "2080"
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 19 Jan 2025 12:24:47 GMT"
+							"value": "Mon, 20 Jan 2025 03:01:48 GMT"
 						},
 						{
 							"key": "Connection",
@@ -688,7 +687,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"id\": 1,\n        \"documentId\": \"tf7wv7w76rqw3lu48vubx5de\",\n        \"match_status\": \"Ongoing\",\n        \"host_id\": {\n            \"id\": 1,\n            \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n            \"username\": \"player1test@icloud.com\",\n            \"email\": \"player1test@icloud.com\"\n        },\n        \"players\": [\n            {\n                \"id\": 1,\n                \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n                \"username\": \"player1test@icloud.com\",\n                \"email\": \"player1test@icloud.com\"\n            },\n            {\n                \"id\": 2,\n                \"documentId\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n                \"username\": \"player2test@icloud.com\",\n                \"email\": \"player2test@icloud.com\"\n            }\n        ],\n        \"rounds\": [\n            {\n                \"createdAt\": \"2025-01-19T03:12:44.561Z\",\n                \"id\": 3,\n                \"documentId\": \"sbmfsqxp46vvplp6fg2alwah\",\n                \"question_contexts\": [\n                    {\n                        \"id\": 1,\n                        \"documentId\": \"o2qrnlldknlz1mql6fhogx1q\",\n                        \"question\": \"<p style=\\\"line-height:1.38;margin-bottom:12pt;margin-top:12pt;\\\" dir=\\\"ltr\\\"><span style=\\\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\\\"><span style=\\\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\\\">In a town, there is a 4-acre park and a 60-acre residential area. The total number of street lamps in the town is 1,200. The equation 4x + 60y = 1,200 represents this situation. Which of the following is the best interpretation of x in this context?&nbsp;</span></span></p>\",\n                        \"correct_answer\": \"15400\"\n                    }\n                ],\n                \"player_answer_data\": []\n            },\n            {\n                \"createdAt\": \"2025-01-19T03:09:51.645Z\",\n                \"id\": 1,\n                \"documentId\": \"rgi4zhwvsyylkd7846ph19f5\",\n                \"question_contexts\": [\n                    {\n                        \"id\": 1,\n                        \"documentId\": \"o2qrnlldknlz1mql6fhogx1q\",\n                        \"question\": \"<p style=\\\"line-height:1.38;margin-bottom:12pt;margin-top:12pt;\\\" dir=\\\"ltr\\\"><span style=\\\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\\\"><span style=\\\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\\\">In a town, there is a 4-acre park and a 60-acre residential area. The total number of street lamps in the town is 1,200. The equation 4x + 60y = 1,200 represents this situation. Which of the following is the best interpretation of x in this context?&nbsp;</span></span></p>\",\n                        \"correct_answer\": \"15400\"\n                    }\n                ],\n                \"player_answer_data\": [\n                    {\n                        \"id\": 1,\n                        \"documentId\": \"fugyyavx94k8os3d5ak30fg9\",\n                        \"answer_text\": \"1500\",\n                        \"time_taken\": 5,\n                        \"answered_by\": {\n                            \"id\": 1,\n                            \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n                            \"username\": \"player1test@icloud.com\"\n                        }\n                    },\n                    {\n                        \"id\": 3,\n                        \"documentId\": \"zygptv6wssy4bx5tozxxu1a4\",\n                        \"answer_text\": \"1600\",\n                        \"time_taken\": 3,\n                        \"answered_by\": {\n                            \"id\": 2,\n                            \"documentId\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n                            \"username\": \"player2test@icloud.com\"\n                        }\n                    }\n                ]\n            }\n        ]\n    },\n    {\n        \"id\": 22,\n        \"documentId\": \"ejaf9114t0yfj0rg1051g7cu\",\n        \"match_status\": \"Ongoing\",\n        \"host_id\": {\n            \"id\": 1,\n            \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n            \"username\": \"player1test@icloud.com\",\n            \"email\": \"player1test@icloud.com\"\n        },\n        \"players\": [\n            {\n                \"id\": 2,\n                \"documentId\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n                \"username\": \"player2test@icloud.com\",\n                \"email\": \"player2test@icloud.com\"\n            },\n            {\n                \"id\": 1,\n                \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n                \"username\": \"player1test@icloud.com\",\n                \"email\": \"player1test@icloud.com\"\n            }\n        ],\n        \"rounds\": []\n    },\n    {\n        \"id\": 24,\n        \"documentId\": \"o8ueyb325qstneja67z18a4k\",\n        \"match_status\": \"Ongoing\",\n        \"host_id\": {\n            \"id\": 1,\n            \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n            \"username\": \"player1test@icloud.com\",\n            \"email\": \"player1test@icloud.com\"\n        },\n        \"players\": [\n            {\n                \"id\": 2,\n                \"documentId\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n                \"username\": \"player2test@icloud.com\",\n                \"email\": \"player2test@icloud.com\"\n            },\n            {\n                \"id\": 1,\n                \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n                \"username\": \"player1test@icloud.com\",\n                \"email\": \"player1test@icloud.com\"\n            }\n        ],\n        \"rounds\": [\n            {\n                \"createdAt\": \"2025-01-19T10:08:44.409Z\",\n                \"id\": 7,\n                \"documentId\": \"shlsepy72qfg54wocuo4gm3r\",\n                \"question_contexts\": [\n                    {\n                        \"id\": 7,\n                        \"documentId\": \"g4m4u2miqz4ndnzdppbpp4fm\",\n                        \"question\": \"<p>This is a test question</p>\",\n                        \"correct_answer\": \"1500\"\n                    }\n                ],\n                \"player_answer_data\": [\n                    {\n                        \"id\": 9,\n                        \"documentId\": \"ebbx0xgj09n9hp77j9ukngax\",\n                        \"answer_text\": \"2000\",\n                        \"time_taken\": 10000,\n                        \"answered_by\": {\n                            \"id\": 1,\n                            \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n                            \"username\": \"player1test@icloud.com\"\n                        }\n                    },\n                    {\n                        \"id\": 7,\n                        \"documentId\": \"lpxiubzv1pxcp1p7vqvgr4iy\",\n                        \"answer_text\": \"1500\",\n                        \"time_taken\": 5000,\n                        \"answered_by\": {\n                            \"id\": 2,\n                            \"documentId\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n                            \"username\": \"player2test@icloud.com\"\n                        }\n                    }\n                ]\n            }\n        ]\n    }\n]"
+					"body": "[\n    {\n        \"id\": 27,\n        \"documentId\": \"gr5l8c4ye8jrhy6ba74ds542\",\n        \"match_status\": \"Ongoing\",\n        \"host_id\": {\n            \"id\": 1,\n            \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n            \"username\": \"player1test@icloud.com\",\n            \"email\": \"player1test@icloud.com\"\n        },\n        \"players\": [\n            {\n                \"id\": 1,\n                \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n                \"username\": \"player1test@icloud.com\",\n                \"email\": \"player1test@icloud.com\"\n            },\n            {\n                \"id\": 2,\n                \"documentId\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n                \"username\": \"player2test@icloud.com\",\n                \"email\": \"player2test@icloud.com\"\n            }\n        ],\n        \"rounds\": [\n            {\n                \"createdAt\": \"2025-01-20T03:01:43.643Z\",\n                \"id\": 11,\n                \"documentId\": \"mz850ntkmv90uy3j64hvffu8\",\n                \"question_contexts\": [\n                    {\n                        \"id\": 1,\n                        \"documentId\": \"o2qrnlldknlz1mql6fhogx1q\",\n                        \"question\": \"<p style=\\\"line-height:1.38;margin-bottom:12pt;margin-top:12pt;\\\" dir=\\\"ltr\\\"><span style=\\\"background-color:transparent;color:rgb(0,0,0);font-family:Arial, sans-serif;font-size:11pt;\\\"><span style=\\\"font-style:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-weight:400;text-decoration:none;vertical-align:baseline;white-space:pre-wrap;\\\">In a town, there is a 4-acre park and a 60-acre residential area. The total number of street lamps in the town is 1,200. The equation 4x + 60y = 1,200 represents this situation. Which of the following is the best interpretation of x in this context?&nbsp;</span></span></p>\",\n                        \"correct_answer\": \"15400\"\n                    }\n                ],\n                \"player_answer_data\": []\n            },\n            {\n                \"createdAt\": \"2025-01-20T02:59:40.834Z\",\n                \"id\": 9,\n                \"documentId\": \"tfw8iv9ruzwoar08mishydss\",\n                \"question_contexts\": [\n                    {\n                        \"id\": 9,\n                        \"documentId\": \"wmhpo7ojwjc4tjzxcnoqpta2\",\n                        \"question\": \"<p>What is this?</p><p>Computer.jpg</p>\",\n                        \"correct_answer\": \"computer\"\n                    }\n                ],\n                \"player_answer_data\": [\n                    {\n                        \"id\": 11,\n                        \"documentId\": \"g4g2a9ffcw0tlj4ec9n47k7r\",\n                        \"answer_text\": \"car\",\n                        \"time_taken\": 100000,\n                        \"answered_by\": {\n                            \"id\": 1,\n                            \"documentId\": \"txpp8t2tmoxiaihyh7pv3urj\",\n                            \"username\": \"player1test@icloud.com\"\n                        }\n                    },\n                    {\n                        \"id\": 13,\n                        \"documentId\": \"t49phj8jtnh8sxfmgwsfvehf\",\n                        \"answer_text\": \"computer\",\n                        \"time_taken\": 5000,\n                        \"answered_by\": {\n                            \"id\": 2,\n                            \"documentId\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n                            \"username\": \"player2test@icloud.com\"\n                        }\n                    }\n                ]\n            }\n        ]\n    }\n]"
 				}
 			]
 		},
@@ -744,11 +743,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:1337/api/rounds",
+							"raw": "{{BASE_URL}}/api/rounds",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "1337",
 							"path": [
 								"api",
 								"rounds"
@@ -850,7 +848,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"data\": {\n        \"round_index\": \"shlsepy72qfg54wocuo4gm3r\",\n        \"answered_by\": \"txpp8t2tmoxiaihyh7pv3urj\",\n        \"question_content\": \"g4m4u2miqz4ndnzdppbpp4fm\",\n        \"answer_text\": \"2000\",\n        \"time_taken\": 10000\n    }\n}",
+					"raw": "{\n    \"data\": {\n        \"round_index\": \"yv1dfg4o5sl13qxp8lqehz1f\",\n        \"answered_by\": \"ncyodq4vdkrlmrg4ka4mwp1b\",\n        \"question_content\": \"wmhpo7ojwjc4tjzxcnoqpta2\",\n        \"answer_text\": \"computer\",\n        \"time_taken\": 10000\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -885,11 +883,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:1337/api/players",
+							"raw": "{{BASE_URL}}/api/players",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "1337",
 							"path": [
 								"api",
 								"players"

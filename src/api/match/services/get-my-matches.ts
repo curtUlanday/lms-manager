@@ -4,45 +4,52 @@
 
 
 export default {
-    getAllMyMatches: async (userId) => {
+    getAllMyMatches: async (contextParams) => {
        try {
-        console.log('get-my-matches service');
-        let matchRawData:any = await strapi.entityService.findMany(
-            "api::match.match",
-            {
-                filters: {
-                    match_status: 'Ongoing',
-                },
-                fields: ["id", "match_status"],
-                populate: {
-                    host_id: {
-                        fields: ["id", "username", "email"],
-                    },
-                    players: {
-                        fields: ["id", "username", "email"],
-                    },
-                    rounds: {
-                        fields: ["id"],
-                        populate: {
-                            question_contexts: {
-                                fields: ["id", "question", "correct_answer"],
-                            },
-                            player_answer_data: {
-                                fields: ["answer_text", "time_taken"],
-                                populate: {
-                                    answered_by: {
-                                        fields: ["id", "username"],
-                                    },
-                                },
-                            }
-                        },
-                        sort: {
-                            createdAt: "desc"
-                        }
+        let userId = contextParams.id;
+        let matchStatus = contextParams.status;
+        console.log('getMyMatches service called with userId: ', userId, ' and matchStatus: ', matchStatus);
+
+        let matchRawData: any = await strapi.documents('api::match.match').findMany({
+            filters: {
+                match_status: matchStatus,
+                players: {
+                    documentId: {
+                        $contains: userId
                     }
+                }
+            },
+            fields: ["id", "match_status"],
+            populate: {
+                host_id: {
+                    fields: ["id", "username", "email"],
                 },
+                players: {
+                    fields: ["id", "username", "email"],
+                },
+                rounds: {
+                    fields: ["id"],
+                    populate: {
+                        question_context: {
+                            fields: ["id", "question", "correct_answer"],
+                        },
+                        player_answer_data: {
+                            fields: ["answer_text", "time_taken"],
+                            populate: {
+                                answered_by: {
+                                    fields: ["id", "username"],
+                                },
+                            },
+                        }
+                    },
+                    sort: {
+                        createdAt: "desc"
+                    }
+                }
             }
-        );
+        });
+
+        
 
         matchRawData.forEach(matchData => {
             if(matchData.rounds.length > 0){

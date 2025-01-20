@@ -5,10 +5,8 @@
 export default {
   getAllMyMatches: async (ctx, next) => {
     try {
-      console.log('ctx',ctx.params);
-      const data = await strapi.service('api::match.get-my-matches').getAllMyMatches(ctx.params.id);
+      const data = await strapi.service('api::match.get-my-matches').getAllMyMatches(ctx.params);
       ctx.body = data;
-      // ctx.body = 'ok';
     } catch (err) {
       ctx.body = err;
     }
