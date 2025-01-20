@@ -1,6 +1,6 @@
 # Question & Solution Learning Management App and Match Invite System
 
-[Strapi.io ](https://strapi.io/) was used to create this app. Admin or Learning Manager can create questions and manage file uploads here in this [app](https://prized-beauty-0d76e9d2d4.strapiapp.com/admin/auth/login) (Please send me an email to create an account)
+[Strapi.io ](https://strapi.io/) was used to create this app. Admin or Learning Manager can create questions and manage file uploads here in this [app](https://ancient-treasure-2b30875984.strapiapp.com/admin/auth/login) (Please send me an email to create an account)
 
 Update: Added Match invite system where learners can create a friendly match
 
@@ -28,14 +28,14 @@ Below is the data model for this app:
 
 | Name      | Value                                                                                                                                                                                                                                                            |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BASE_URL  | https://prized-beauty-0d76e9d2d4.strapiapp.com                                                                                                                                                                                                                   |
+| BASE_URL  | https://ancient-treasure-2b30875984.strapiapp.com                                                                                                                                                                                                                   |
 | API Token | 1d1aa4d1276b5eb7e2ab9e4355449fa52e5b831bf46a3c7113410b0132668d3e4e80423bf8983714401ab55a4c84884c4c9d6db268b4761f9017df6625ca4fcddbadc695d70027cb126f87b209f7a2d4b9abfac031c23d31e491d5bb085998cc85c2ac9e076c945a51fe4bceb20519747f3454eddf403cb47c2ce988528af75e |
 
 Postman collection can be found [here](/public/docs/LMS.postman_collection.json) to test the API:
 
 ### Generic Endpoints Question and Solution System
 
-[Strapi.io ](https://strapi.io/) was used to create this app. Admin or Learning Manager can create questions and manage file uploads here in this [app](https://prized-beauty-0d76e9d2d4.strapiapp.com/admin/auth/login) (Please send me an email to create an account)
+[Strapi.io ](https://strapi.io/) was used to create this app. Admin or Learning Manager can create questions and manage file uploads here in this [app](https://ancient-treasure-2b30875984.strapiapp.com/admin/auth/login) (Please send me an email to create an account)
 
 Update: Added Match invite system where learners can create a friendly match
 
