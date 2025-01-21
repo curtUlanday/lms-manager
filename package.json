@@ -30,7 +30,7 @@
     "typescript": "^5"
   },
   "engines": {
-    "node": "20.18.1",
+    "node": "^20.0.0",
     "npm": "9.6.4"
   },
   "strapi": {
